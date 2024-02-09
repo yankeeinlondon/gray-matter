@@ -1,5 +1,6 @@
 import stripBom from "strip-bom-string";
 import typeOf from "kind-of";
+import { Buffer } from "node:buffer";
 
 export const utils = {
   define: (obj: any, key: any, val: any) => {

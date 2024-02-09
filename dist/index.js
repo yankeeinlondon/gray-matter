@@ -83,6 +83,7 @@ var engines_default = engines;
 // src/utils.ts
 import stripBom from "strip-bom-string";
 import typeOf from "kind-of";
+import { Buffer } from "buffer";
 var utils = {
   define: (obj, key, val) => {
     Reflect.defineProperty(obj, key, {
@@ -313,7 +314,7 @@ var matterDict = {
       closeIndex = len;
     }
     f.matter = f.content.slice(0, closeIndex);
-    const block = f.matter.replace(/^\s*#[^\n]+/gm, "").trim();
+    const block = f.matter.replaceAll(/^\s*#[^\n]+/gm, "").trim();
     if (block === "") {
       f.isEmpty = true;
       f.empty = f.content;
